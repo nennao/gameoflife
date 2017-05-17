@@ -64,8 +64,15 @@ for (i in pattern5b){
 	pattern5 = pattern5.concat(brush_type(pattern5b[i][0], pattern5b[i][1], 10, 'brushLineV'));
 };
 
+// pattern6 - concentric octagons
+var pattern6 = [];
+var pattern6a = brush_type(25, 25, 23, 'brushOct');
+var pattern6b = brush_type(25, 25, 37, 'brushOct');
+var pattern6c = brush_type(25, 25, 51, 'brushOct');
+pattern6 = pattern6a.concat(pattern6b).concat(pattern6c);
 
-patterns = [pattern1, pattern2, pattern3, pattern4, pattern5];
+
+patterns = [pattern1, pattern2, pattern3, pattern4, pattern5, pattern6];
 
 
 
