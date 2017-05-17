@@ -1,4 +1,5 @@
 body {
+	font-family: 'Quicksand', sans-serif;
 }
 
 footer {
@@ -32,6 +33,8 @@ footer p {
 	background-image: url(graphics/logo.png);
 }
 #footGit {
+	position: relative;
+	bottom: 3px;
 	width: 25px;
 	height: 25px;
 	background-image: url(graphics/github.png);
@@ -128,7 +131,6 @@ hr {margin: 20px 0 5px;}
 .btn.brushBut:nth-of-type(n+5) {
     border-top: none;
 }
-/*.btn-group .btn+.btn{margin:0;}*/
 .brushBut {
 	width: 25%;
     height: 50px;
@@ -145,22 +147,18 @@ hr {margin: 20px 0 5px;}
 }
 
 
-#brushOff {background-image: url(graphics/brushOff.png);}
-#brushBlock {background-image: url(graphics/brushBlock.png);}
+#brushOff    {background-image: url(graphics/brushOff.png); border-bottom-left-radius: 0; margin-left: -1px;}
+#brushBlock  {background-image: url(graphics/brushBlock.png);}
 #brushCross1 {background-image: url(graphics/brushCross1.png);}
-#brushCross2 {background-image: url(graphics/brushCross2.png);}
-#brushLineV {background-image: url(graphics/brushLineV.png);}
-#brushLineH {background-image: url(graphics/brushLineH.png);}
+#brushCross2 {background-image: url(graphics/brushCross2.png); border-top-right-radius: 4px;}
+#brushLineV  {background-image: url(graphics/brushLineV.png);}
+#brushLineH  {background-image: url(graphics/brushLineH.png);}
 #brushLineD1 {background-image: url(graphics/brushLineD1.png);}
 #brushLineD2 {background-image: url(graphics/brushLineD2.png);}
-#brushSquare {background-image: url(graphics/brushSquare.png);}
-#brushOct {background-image: url(graphics/brushOct.png);}
-#brushGlider {background-image: url(graphics/brushGlider.png);}
+#brushSquare {background-image: url(graphics/brushSquare.png); border-bottom-left-radius: 4px;}
+#brushOct    {background-image: url(graphics/brushOct.png);}
+#brushGlider {background-image: url(graphics/brushGlider.png); border-top-right-radius: 0;}
 
-#brushOff {border-bottom-left-radius: 0; margin-left: -1px;}
-#brushGlider {border-top-right-radius: 0;}
-#brushCross2 {border-top-right-radius: 4px;}
-#brushSquare {border-bottom-left-radius: 4px;}
 
 .brushSlider, .fpsSlider {
 	display: inline-block;    
@@ -173,7 +171,7 @@ hr {margin: 20px 0 5px;}
 	margin-left: 5px;
 	position: absolute; 
 }
-#delBut {margin: 1% auto;}
+#delBut {margin: 2% auto;}
 
 .noClick {cursor: not-allowed;}
 

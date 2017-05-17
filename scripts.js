@@ -276,9 +276,7 @@ function brushHover(){
 	    }
 	}
 	$("#canvasG").one('mousemove', function(e){
-		
-		// bH++; if (bH%sens===0){console.log('brushHover', bH)};
-
+	
 		var mousePos = getMousePos(e); 
 		hovMouseX = mousePos[0]; hovMouseY = mousePos[1];
 
@@ -308,8 +306,8 @@ $(document).keydown(function(e){
 		}
 	}
 	if(key == "48") 			   // key 0: toggle Symmetry Lines
-		{if (symLines){symLines = false; $("#toggleSLines .tickM").hide();} 
-		else {symLines = true; $("#toggleSLines .tickM").show();}
+		{if (symLines){symLines = false; $("#toggleSLines").removeClass("active"); $("#toggleSLines .tickM").hide();} 
+		else {symLines = true; $("#toggleSLines").addClass("active"); $("#toggleSLines .tickM").show();}
 	}
 	if(key == "69"){ eraserMode()};  // key E: toggle Eraser
 
@@ -399,10 +397,8 @@ function init(){
 
 			$("#canvasG").mouseenter(function(){
 				clearInterval(brush_loop);
-				// console.log('registered mouseenter for brushHover');
 				brush_loop = setInterval(brushHover, 1000 / sens);
 			}).mouseleave(function(){
-				// console.log('registered mouseleave for brushHover');
 				clearInterval(brush_loop);
 			});
 		}
@@ -464,6 +460,7 @@ $("#getPattern").click(function(){
 // todo: remember to set up dynamic changing of canvas width, height & brush slider max
 // todo: if possible, disable right click, disable cursor hidden when keydown
 // todo: shift click or ctrl click for larger increments of brush size/fps change
-// todo: make pattern randomiser
+// done: make pattern randomiser
+// todo: make more patterns
 });
 
