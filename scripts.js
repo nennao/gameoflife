@@ -42,10 +42,8 @@ gridOn = true;
 function pauseGame() {
 	if (play) {
 		play = false; $("#playPause b").text("play"); $("#gameStateTxt").text("paused");
-		$("#getPattern").removeClass('noClick');
 	} else {
 		play = true; $("#playPause b").text("pause"); $("#gameStateTxt").text("playing");
-		$("#getPattern").addClass('noClick');
 	}
 };
 function eraserMode() {
@@ -189,20 +187,18 @@ function get_neighbours(allCells){
 
 // random pattern
 function getPattern(){
-	if (!play){
-		cells = clear_cells();
-		var pos = randPattern();
-		for (p in pos){
-		
-			if (pos[p][0] < 0 || pos[p][0] >= columns || pos[p][1] < 0 || pos[p][1] >= rows) {
-				continue;
-			}
-			else {
-				cells[pos[p][0]][pos[p][1]] = 1;
-			}
-    	}
-	}
+	if (play) pauseGame();
+	cells = clear_cells();
+	var pos = randPattern();
+	for (p in pos){
 	
+		if (pos[p][0] < 0 || pos[p][0] >= columns || pos[p][1] < 0 || pos[p][1] >= rows) {
+			continue;
+		}
+		else {
+			cells[pos[p][0]][pos[p][1]] = 1;
+		}
+	}
 }
 
 // pen/brush functions
@@ -233,7 +229,6 @@ function draw(e){
 		if (!delMode && !e.shiftKey){
 			if (brushOn){
 				brush(mouseX, mouseY, 1);
-				console.log(mouseX, mouseY);
 			}
 			else {
 				if (cells[mouseX][mouseY] == 0) {cells[mouseX][mouseY] = 1;}

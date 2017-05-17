@@ -53,4 +53,20 @@ for (i in pattern4i){
 	pattern4 = pattern4.concat(pattern4i[i]);
 }
 
-patterns = [pattern1, pattern2, pattern3, pattern4];
+// pattern5 - spiral of row 10s
+var pattern5 = [];
+var pattern5a = [[27, 15], [22, 35], [24, 5], [25, 45], [7, 45], [42, 5]];
+var pattern5b = [[15, 22], [35, 27], [5, 25], [45, 24], [5, 7], [45, 42]];
+for (i in pattern5a){
+	pattern5 = pattern5.concat(brush_type(pattern5a[i][0], pattern5a[i][1], 10, 'brushLineH'));
+};
+for (i in pattern5b){
+	pattern5 = pattern5.concat(brush_type(pattern5b[i][0], pattern5b[i][1], 10, 'brushLineV'));
+};
+
+
+patterns = [pattern1, pattern2, pattern3, pattern4, pattern5];
+
+
+
+
