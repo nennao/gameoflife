@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		
+	</style>
+
+</head>
+<body>
+<div id="leftSide">
+	<div id="canvases">
+		<canvas id="myCanvas" width="510" height="510">Your browser does not support the canvas element.</canvas>
+		<canvas id="canvasB" width="510" height="510"></canvas> <!-- canvas Brush -->
+		<canvas id="canvasG" width="510" height="510"></canvas> <!-- canvas Grid -->
+	</div>
+
+	<div id="gameStateTxt"></div>
+	<div id="delModeTxt"></div>
+</div>
+
+
+
+<div id="rightSide">
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand">game of life art</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a id="getPattern">random pattern</a></li>
+			<li><a >help</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+<div id="rightBot">
+<div class="firstSet">
+	<div>
+	<div id="playPause" class="btn btn-default"><b>play</b></div>
+	<div class="fpsSlider">speed (fps): <span id="fpsValue">10</span><input type="range" id="fpsSizer" min="1" max="30" step="1" value="10"></div>
+	</div>
+
+	<div>
+	<div id="toggleGrid" class="btn btn-default active">grid <span class="tickM">&#10003;</span></div>
+	<div id="toggleSLines" class="btn btn-default">center lines <span class="tickM" style="display: none;">&#10003;</span></div>
+	</div>
+
+	<div>
+	<div id="clearBut" class="btn btn-default">clear</div>
+	<div id="randBut" class="btn btn-default">randomise</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="secondSet">
+
+	<div class="brushesHead">
+	<div><h4>brushes</h4></div>
+	<div class="brushSlider">size: <span id="brushValue">5</span><input type="range" id="brushSizer" min="1" max="51" step="1" value="5"></div>
+	</div>
+
+	<div class="btn-group brushes" data-toggle="buttons">
+	  <label class="btn btn-default brushBut active" id="brushOff">
+	    <input type="radio"> off
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushBlock">
+	    <input type="radio"> block
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushCross1">
+	    <input type="radio"> cross
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushCross2">
+	    <input type="radio"> cross
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushLineV">
+	    <input type="radio"> line
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushLineH">
+	    <input type="radio"> line
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushLineD1">
+	    <input type="radio"> line
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushLineD2">
+	    <input type="radio"> line
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushSquare">
+	    <input type="radio"> square
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushOct">
+	    <input type="radio"> octagon
+	  </label>
+	  <label class="btn btn-default brushBut" id="brushGlider">
+	    <input type="radio"> glider
+	  </label>
+	</div>
+
+	<div id="delBut" class="btn btn-default">eraser mode</div>
+
+</div>
+</div>
+</div>
+
+<footer>
+<a href="https://ninabuilds.herokuapp.com" target="_blank" id="footLogo">nina builds</a> <p> © 2017</p><a href="https://github.com/niinaa/gameoflife.git" target="_blank" id="footGit">github</a>	
+</footer>
+
+
+<script type="text/javascript" src="golbrushes.js"></script>
+<script type="text/javascript" src="randpattern.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
+
+</body>
+</html>

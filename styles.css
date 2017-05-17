@@ -1,0 +1,181 @@
+body {
+}
+
+footer {
+    color: #9d9d9d;
+    background-color: #222;
+    padding: 10px 0 0;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+	display: inline-block;
+	margin-left: 3px;
+	margin-right: 10px;
+}
+#footLogo, #footGit{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 0;
+	opacity: 0.55;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#footLogo {
+	width: 100px;
+	height: 25px;
+	background-image: url(graphics/logo.png);
+}
+#footGit {
+	width: 25px;
+	height: 25px;
+	background-image: url(graphics/github.png);
+}
+#footLogo:hover, #footGit:hover{
+	opacity: 1;
+}
+
+#leftSide {
+	float: left;
+	padding: 10px;
+}
+#canvases {
+	width: 510px;
+	height: 510px;
+	position: relative;
+	margin-bottom: 5px;
+}
+canvas {
+	cursor: default;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#myCanvas{
+	background: #000; 
+}
+
+#canvasB{
+	background: rgba(255, 0, 0, 0.0); 
+}
+
+#canvasG{
+	border-bottom: 1px solid #000090; 
+	border-right: 1px solid #000090;
+}
+#gameStateTxt, #delModeTxt {
+	margin: 0px 16px;
+    width: 43%;
+	display: inline-block;
+	font-size: 24px;
+}
+#delModeTxt {text-align: right;}
+
+
+#rightSide {
+	margin-left: 530px;
+
+}
+
+/*========= NAV ===========*/
+#rightSide nav {
+	display: flex;
+	border-radius: 0;
+	border-bottom-left-radius: 4px;
+}
+#getPattern {cursor: pointer;}
+#getPattern.noClick{cursor: default;}
+#getPattern.noClick:hover{color:#9d9d9d;}
+/*========= === ===========*/
+hr {margin: 20px 0 5px;}
+
+#rightBot {
+	margin-right: 10px;
+}
+.firstSet > div, .secondSet > div  {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+
+.firstSet > div > div, .brushesHead > div, #delBut {
+    width: 48%;
+    max-width: 250px;
+    height: 45px;
+    margin: 1% 0;
+    font-size: 16px;
+}
+.brushesHead h4 { font-size: 24px; }
+
+.firstSet > div > div:first-child, .brushesHead > div:first-child {
+    margin-right: 2%;
+}
+.firstSet .btn, #delBut {
+	padding: 10px 12px;
+}
+.brushes {
+	max-width: 540px;
+	margin: auto;
+}
+
+.btn.brushBut:nth-of-type(n+5) {
+    border-top: none;
+}
+/*.btn-group .btn+.btn{margin:0;}*/
+.brushBut {
+	width: 25%;
+    height: 50px;
+	padding: 14px 12px;
+    padding-left: 18px;
+	margin-left: 0px;
+	background-size: 35px;
+	background-position: 5px;
+	background-repeat: no-repeat;
+    text-shadow: 0px 0px 2px #fff;
+}
+.brushBut:nth-of-type(n+9) {
+    width: 33.3%;
+}
+
+
+#brushOff {background-image: url(graphics/brushOff.png);}
+#brushBlock {background-image: url(graphics/brushBlock.png);}
+#brushCross1 {background-image: url(graphics/brushCross1.png);}
+#brushCross2 {background-image: url(graphics/brushCross2.png);}
+#brushLineV {background-image: url(graphics/brushLineV.png);}
+#brushLineH {background-image: url(graphics/brushLineH.png);}
+#brushLineD1 {background-image: url(graphics/brushLineD1.png);}
+#brushLineD2 {background-image: url(graphics/brushLineD2.png);}
+#brushSquare {background-image: url(graphics/brushSquare.png);}
+#brushOct {background-image: url(graphics/brushOct.png);}
+#brushGlider {background-image: url(graphics/brushGlider.png);}
+
+#brushOff {border-bottom-left-radius: 0; margin-left: -1px;}
+#brushGlider {border-top-right-radius: 0;}
+#brushCross2 {border-top-right-radius: 4px;}
+#brushSquare {border-bottom-left-radius: 4px;}
+
+.brushSlider, .fpsSlider {
+	display: inline-block;    
+	padding-left: 5px;
+}
+#brushSizer, #fpsSizer{
+	margin-top: 5px;
+}
+#brushValue, #fpsValue {
+	margin-left: 5px;
+	position: absolute; 
+}
+#delBut {margin: 1% auto;}
+
+.noClick {cursor: not-allowed;}
+
+
+
