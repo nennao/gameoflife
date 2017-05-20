@@ -29,7 +29,7 @@ cellColor = "#00ff00";
 bgColor = "#000000";
 
 
-// globals
+// other globals
 play = false;
 symLines = false;
 delMode = false;
@@ -45,14 +45,16 @@ function pauseGame() {
 	} else {
 		play = true; $("#playPause b").text("pause"); $("#gameStateTxt").text("playing");
 	}
-};
+}
+
 function eraserMode() {
 	if (delMode) {
 		delMode = false; $("#delBut").removeClass("active"); $("#delModeTxt").text("")
 	} else {
 		delMode = true; $("#delBut").addClass("active"); $("#delModeTxt").text("eraser mode on")
 	}
-};
+}
+
 function brushSizeChg(val){
 	if (val){
 		if ((val > 0 && brushSize < Math.min(columns, rows)) || (val < 0 && brushSize > 1)){
@@ -72,12 +74,11 @@ function getMousePos(e){
 	var offsetX = canvasOffset.left; var offsetY = canvasOffset.top;
 
 	var mouseX = (Math.floor((e.clientX - offsetX)/cSz));
-		if(mouseX >= columns) {mouseX = columns-1;}
+		if(mouseX >= columns) mouseX = columns-1;
 	var mouseY = (Math.floor((e.clientY - offsetY)/cSz)); 
-		if(mouseY >= rows) {mouseY = rows-1;}
+		if(mouseY >= rows) mouseY = rows-1;
 
 	return [mouseX, mouseY];
-	
 }
 
 // draw symmetry lines
@@ -101,6 +102,7 @@ function draw_grid(){
 	}
 	ctxG.stroke();
 }
+
 // clear grid
 function clear_grid(){
 	ctxG.clearRect(0,0, gridW,gridH);
@@ -121,7 +123,7 @@ function clear_cells(){
         all_cells.push(column_cells);
     }
     return all_cells;
-};
+}
 
 
 function get_cells(){
@@ -138,7 +140,7 @@ function get_cells(){
         all_cells.push(column_cells);
     }
     return all_cells;
-};
+}
 
 
 function draw_cells(allCells){
@@ -167,23 +169,22 @@ function get_neighbours(allCells){
 			p00 = p01 = p02 = p10 = p12 = p20 = p21 = p22 = 0;
 			x = parseInt(x); y = parseInt(y);
 
-			if (x-1 >= 0 && y-1 >= 0)	   	{p00 = allCells[x-1][y-1]};
-			if (			  y-1 >= 0)	   	{p01 = allCells[x][y-1]};
-			if (x+1 < columns && y-1 >= 0) 	{p02 = allCells[x+1][y-1]};
-			if (x-1 >= 0)					{p10 = allCells[x-1][y]};
-			if (x+1 < columns)				{p12 = allCells[x+1][y]};
-			if (x-1 >= 0 && y+1 < rows)		{p20 = allCells[x-1][y+1]};
-			if (			y+1 < rows)		{p21 = allCells[x][y+1]};
-			if (x+1 < columns && y+1 < rows){p22 = allCells[x+1][y+1]};
+			if (x-1 >= 0 && y-1 >= 0)	   	 p00 = allCells[x-1][y-1];
+			if (			y-1 >= 0)	   	 p01 = allCells[x][y-1];
+			if (x+1 < columns && y-1 >= 0) 	 p02 = allCells[x+1][y-1];
+			if (x-1 >= 0)					 p10 = allCells[x-1][y];
+			if (x+1 < columns)				 p12 = allCells[x+1][y];
+			if (x-1 >= 0 && y+1 < rows)		 p20 = allCells[x-1][y+1];
+			if (			y+1 < rows)		 p21 = allCells[x][y+1];
+			if (x+1 < columns && y+1 < rows) p22 = allCells[x+1][y+1];
 
 			var neighbours  = p00 + p01 + p02 + p10 + p12 + p20 + p21 + p22;
-			col_neighbours.push(neighbours);	
-			
+			col_neighbours.push(neighbours);		
 		}
 		live_neighbours.push(col_neighbours);
 	}
 	return live_neighbours;
-};
+}
 
 // random pattern
 function getPattern(){
@@ -231,7 +232,7 @@ function draw(e){
 				brush(mouseX, mouseY, 1);
 			}
 			else {
-				if (cells[mouseX][mouseY] == 0) {cells[mouseX][mouseY] = 1;}
+				if (cells[mouseX][mouseY] == 0) cells[mouseX][mouseY] = 1;
 			}	
 		}
 		else {
@@ -239,11 +240,11 @@ function draw(e){
 				brush(mouseX, mouseY, 0);
 			}
 			else { 
-				if (cells[mouseX][mouseY] == 1) {cells[mouseX][mouseY] = 0;}
+				if (cells[mouseX][mouseY] == 1) cells[mouseX][mouseY] = 0;
 			}
 		}
 	}
-};
+}
 
 
 
@@ -263,8 +264,8 @@ function brushHover(){
 			}
 			else {
 				ctxB.clearRect(hovPos[p][0]*cSz,hovPos[p][1]*cSz, cSz,cSz);
-				if (delMode || shiftOn) {ctxB.fillStyle = bgColor;}
-				else {ctxB.fillStyle = cellColor;}
+				if (delMode || shiftOn) ctxB.fillStyle = bgColor;
+				else ctxB.fillStyle = cellColor;
 				
 				ctxB.fillRect(hovPos[p][0]*cSz,hovPos[p][1]*cSz, cSz,cSz);
 			}
@@ -274,20 +275,29 @@ function brushHover(){
 	
 		var mousePos = getMousePos(e); 
 		hovMouseX = mousePos[0]; hovMouseY = mousePos[1];
-
-	}).mouseleave(function(){ctxB.clearRect(0,0, gridW,gridH)}); 
-};
+	})
+	.mouseleave(function(){
+		ctxB.clearRect(0,0, gridW,gridH)
+	}); 
+}
 
 
 // mouse draw function
-$("#canvasG").click(function(e){draw(e);
-}).mousedown(function() {
-	$(this).mousemove(function(e){draw(e);
-	}).mouseup(function() {$(this).unbind('mousemove');
-	}).mouseenter(function(e) {
-		if(e.which != '1'){$(this).unbind('mousemove');}
-	}).mouseleave(function(e) {
-		if(e.which != '1'){$(this).unbind('mousemove');}
+$("#canvasG").click(function(e){
+	draw(e);
+})
+.mousedown(function() {
+	$(this).mousemove(function(e){
+		draw(e);
+	})
+	.mouseup(function() {
+		$(this).unbind('mousemove');
+	})
+	.mouseenter(function(e) {
+		if (e.which != '1') $(this).unbind('mousemove');
+	})
+	.mouseleave(function(e) {
+		if (e.which != '1') $(this).unbind('mousemove');
 	})
 });
 
@@ -295,24 +305,30 @@ $("#canvasG").click(function(e){draw(e);
 // keyboard functions
 $(document).keydown(function(e){
 	var key = e.which;
-	if(key == "32") {pauseGame(); // space bar: pause/play
+	if(key == "32") {				// space bar: pause/play
+		pauseGame(); 
 		if (e.target == document.body){
 			e.preventDefault(); // stop spacebar scrolling the page
 		}
 	}
-	if(key == "48") 			   // key 0: toggle Symmetry Lines
-		{if (symLines){symLines = false; $("#toggleSLines").removeClass("active"); $("#toggleSLines .tickM").hide();} 
-		else {symLines = true; $("#toggleSLines").addClass("active"); $("#toggleSLines .tickM").show();}
+	if(key == "48") {			   	// key 0: toggle Symmetry Lines
+		if (symLines){
+			symLines = false; $("#toggleSLines").removeClass("active"); $("#toggleSLines .tickM").hide();
+		} 
+		else {
+			symLines = true; $("#toggleSLines").addClass("active"); $("#toggleSLines .tickM").show();
+		}
 	}
-	if(key == "69"){ eraserMode()};  // key E: toggle Eraser
+	if(key == "69") eraserMode();  // key E: toggle Eraser
 
-	if(key == "221"){ brushSizeChg(brushStep)}; // [ key brush size increase
-	if(key == "219"){ brushSizeChg(brushStep*-1)}; // ] key brush size decrease
+	if(key == "221") brushSizeChg(brushStep); 		// [ key brush size increase
+	if(key == "219") brushSizeChg(brushStep*-1); 	// ] key brush size decrease
 
-	if(key == "16"){shiftOn = true};
-}).keyup(function(e){
+	if(key == "16") shiftOn = true;		// shift key toggle
+})
+.keyup(function(e){
 	var key = e.which;
-	if(key == "16"){shiftOn = false};
+	if(key == "16") shiftOn = false;
 });
 
 
@@ -363,7 +379,7 @@ function init(){
 	$(document).keydown(function(e){
 		var key = e.which;
 
-		if(key == "38"){ fpsChange(1)}; // up arrow: fps increase
+		if(key == "38"){ fpsChange(1)};  // up arrow: fps increase
 		if(key == "40"){ fpsChange(-1)}; // down arrow: fps decrease
 	});
 	$("#fpsSizer").mouseup(function(){
@@ -381,19 +397,21 @@ function init(){
 		if (brushId === "brushOff"){
 			brushOn = false;
 		}
-		else{
+		else {
 			brushOn = brushId; 
 			if ($.inArray(brushOn, oddBrush) > -1){
 				brushStep = 2; 
 				$("#brushSizer").prop('step', 2);
-				if (brushSize%2 === 0) {brushSize += 1;}
+				if (brushSize%2 === 0) brushSize += 1;
 			} 
-			else {brushStep = 1; $("#brushSizer").prop('step', 1)};
+			else {
+				brushStep = 1; $("#brushSizer").prop('step', 1);
+			}
 
 			$("#canvasG").mouseenter(function(){
-				clearInterval(brush_loop);
 				brush_loop = setInterval(brushHover, 1000 / sens);
-			}).mouseleave(function(){
+			})
+			.mouseleave(function(){
 				clearInterval(brush_loop);
 			});
 		}
@@ -416,18 +434,28 @@ $("#playPause").click(function(){
 });
 
 // eraser mode
-$("#delBut").click(function(){ eraserMode()});
+$("#delBut").click(function(){ 
+	eraserMode();
+});
 
 // toggle grid
 $("#toggleGrid").click(function(){
-	if (gridOn) {clear_grid(); gridOn = false; $("#toggleGrid").removeClass("active"); $("#toggleGrid .tickM").hide();}
-	else {draw_grid(); gridOn = true; $("#toggleGrid").addClass("active"); $("#toggleGrid .tickM").show();}
+	if (gridOn) {
+		clear_grid(); gridOn = false; $("#toggleGrid").removeClass("active"); $("#toggleGrid .tickM").hide();
+	}
+	else {
+		draw_grid(); gridOn = true; $("#toggleGrid").addClass("active"); $("#toggleGrid .tickM").show();
+	}
 });
 
 // toggle symmetry lines
 $("#toggleSLines").click(function(){
-	if (symLines) {symLines = false; $("#toggleSLines").removeClass("active"); $("#toggleSLines .tickM").hide();}
-	else {symLines = true; $("#toggleSLines").addClass("active"); $("#toggleSLines .tickM").show();}
+	if (symLines) {
+		symLines = false; $("#toggleSLines").removeClass("active"); $("#toggleSLines .tickM").hide();
+	}
+	else {
+		symLines = true; $("#toggleSLines").addClass("active"); $("#toggleSLines .tickM").show();
+	}
 });
 
 // clear cells button
@@ -451,7 +479,7 @@ $("#getPattern").click(function(){
 });
 
 
-// todo: calibration is a bit off if window is not scrolled completely to top... fyi. fix later
+// todo: calibration is a bit off if window is not scrolled completely to top... 
 // todo: remember to set up dynamic changing of canvas width, height & brush slider max
 // todo: if possible, disable right click, disable cursor hidden when keydown
 // todo: shift click or ctrl click for larger increments of brush size/fps change

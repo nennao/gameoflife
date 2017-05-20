@@ -1,7 +1,6 @@
 function brush_type(x, y, length, brush){
-	var l1, l2, p;
+	var l1, l2, l3, l4, p;
 	var positions = [];
-	var positions2 = [];
 
 	[l1, l2] = brushBounds(length);
 	[l3, l4] = brushBounds2(length);
@@ -147,12 +146,14 @@ function brushBounds(length){
     var bounds_upper = bounds_lower + length;
     return [bounds_lower, bounds_upper];
 }
+
 function brushBounds2(length){
 	var bounds = Math.floor((length - 1) / 4);
     var bounds_lower = bounds * -1;
     var bounds_upper = bounds + 1;
     return [bounds_lower, bounds_upper];
 }
+
 oddBrush = ['brushCross1', 'brushCross2', 'brushOct'];
 
 

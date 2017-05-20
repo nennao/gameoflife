@@ -2,6 +2,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
+/*========= FOOTER ===========*/
 footer {
     color: #9d9d9d;
     background-color: #222;
@@ -42,7 +43,9 @@ footer p {
 #footLogo:hover, #footGit:hover{
 	opacity: 1;
 }
+/*===========================*/
 
+/*======= LEFT SIDE =========*/
 #leftSide {
 	float: left;
 	padding: 10px;
@@ -78,13 +81,12 @@ canvas {
 	display: inline-block;
 	font-size: 24px;
 }
-#delModeTxt {text-align: right;}
-
-
-#rightSide {
-	margin-left: 530px;
-
+#delModeTxt {
+	text-align: right;
 }
+/*=========================*/
+
+
 
 /*========= NAV ===========*/
 #rightSide nav {
@@ -92,9 +94,19 @@ canvas {
 	border-radius: 0;
 	border-bottom-left-radius: 4px;
 }
-#getPattern {cursor: pointer;}
-/*========= === ===========*/
-hr {margin: 20px 0 5px;}
+#getPattern {
+	cursor: pointer;
+}
+/*=========================*/
+
+
+#rightSide {
+	margin-left: 530px;
+}
+
+hr {
+	margin: 20px 0 5px;
+}
 
 #rightBot {
 	margin-right: 10px;
@@ -113,7 +125,9 @@ hr {margin: 20px 0 5px;}
     margin: 1% 0;
     font-size: 16px;
 }
-.brushesHead h4 { font-size: 24px; }
+.brushesHead h4 { 
+	font-size: 24px; 
+}
 
 .firstSet > div > div:first-child, .brushesHead > div:first-child {
     margin-right: 2%;
@@ -145,7 +159,7 @@ hr {margin: 20px 0 5px;}
 }
 
 
-#brushOff    {background-image: url(graphics/brushOff.png); border-bottom-left-radius: 0; margin-left: -1px;}
+#brushOff    {background-image: url(graphics/brushOff.png);    border-bottom-left-radius: 0; margin-left: -1px;}
 #brushBlock  {background-image: url(graphics/brushBlock.png);}
 #brushCross1 {background-image: url(graphics/brushCross1.png);}
 #brushCross2 {background-image: url(graphics/brushCross2.png); border-top-right-radius: 4px;}
@@ -169,9 +183,13 @@ hr {margin: 20px 0 5px;}
 	margin-left: 5px;
 	position: absolute; 
 }
-#delBut {margin: 2% auto;}
+#delBut {
+	margin: 2% auto;
+}
 
-.noClick {cursor: not-allowed;}
+.noClick {
+	cursor: not-allowed;
+}
 
 
 
