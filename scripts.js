@@ -226,6 +226,7 @@ function draw(e){
 	if (mouseBut == "1"){
 		var mousePos = getMousePos(e); 
 		var mouseX = mousePos[0]; var mouseY = mousePos[1];
+		console.log(mouseX, mouseY);
 
 		if (!delMode && !e.shiftKey){
 			if (brushOn){

@@ -34,10 +34,36 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a id="getPattern">random pattern</a></li>
-			<li><a >help</a></li>
+			<li><a id="getHelp" data-toggle="modal" data-target="#helpModal">help</a></li>
 		</ul>
 	</div>
 </nav>
+
+<!-- Help Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+				<h4 class="modal-title">Information</h4>
+			</div>
+			<div class="modal-body">
+				<p>This game is based on <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>: a living cell will "die" if it has more than 3 live neighbours, or less than 2. However, a dead cell with exactly 3 live neighbours will become live. This simple set of rules can lead to pretty complex results, and in the case of this game, pretty and complex living patterns.</p>
+				<p>The best patterns tend to be made when the initial pattern is symmetrical in some way. So go ahead and use the brushes to draw a pattern using one or more lines of symmetry as a guide. Or, choose a random pattern and click 'play' to get started!</p>
+				<hr>
+				<h4>Keyboard Controls</h4>
+				<p><span class="btn btn-default key space"> space </span> play/pause</p>
+				<p><span class="btn btn-default key">&#8595;</span> decrease speed <span class="btn btn-default key">&#8593;</span> increase speed</p>
+				<p><span class="btn btn-default key">0</span> toggle symmetry lines</p>
+				<p><span class="btn btn-default key">[</span> decrease brush size <span class="btn btn-default key">]</span> increase brush size</p>
+				<p><span class="btn btn-default key">&#8679;</span> hold 'shift' to erase <span class="btn btn-default key">E</span> toggle eraser mode</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <div id="rightBot">
@@ -73,7 +99,7 @@
 
 	<div class="btn-group brushes" data-toggle="buttons">
 	  <label class="btn btn-default brushBut active" id="brushOff">
-	    <input type="radio"> off
+	    <input type="radio"> pen
 	  </label>
 	  <label class="btn btn-default brushBut" id="brushBlock">
 	    <input type="radio"> block

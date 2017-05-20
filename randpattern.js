@@ -71,7 +71,55 @@ for (i in pattern6a){
 }
 
 
-patterns = [pattern1, pattern2, pattern3, pattern4, pattern5, pattern6];
+// pattern7 - 3 diagonal crosses
+var pattern7 = [];
+var pattern7a = [[25, 25, 11], [30, 20, 9], [20, 30, 9]];
+for (i in pattern7a){
+	var p =  pattern7a[i];
+	pattern7 = pattern7.concat(brush_type(p[0], p[1], p[2], 'brushCross1'));
+}
+
+
+// pattern8 - noughts, pluses and minuses
+var pattern8 = [];
+var pattern8a = [[2, 2], [2, 28], [25, 2], [25, 48], [48, 22], [48, 48]]; // cross1
+var pattern8b = [[2, 6, 'H'], [25, 6, 'H'], [48, 44, 'H'], [25, 44, 'H'], [44, 22, 'V'], [6, 28, 'V']]; // lineH & lineV
+var pattern8c = [[5, 19], [11, 5], [16, 45], [34, 5], [39, 45], [45, 31]]; // oct
+for (i in pattern8a){
+	var p = pattern8a[i];
+	pattern8 = pattern8.concat(brush_type(p[0], p[1], 5, 'brushCross1'));
+}
+for (i in pattern8b){
+	var p = pattern8b[i];
+	pattern8 = pattern8.concat(brush_type(p[0], p[1], 5, 'brushLine'+p[2]));
+}
+for (i in pattern8c){
+	var p = pattern8c[i];
+	pattern8 = pattern8.concat(brush_type(p[0], p[1], 7, 'brushOct'));
+}
+
+
+// pattern9 - the X factor lol
+var pattern9 = [];
+var pattern9a = [[23, 25], [25, 25], [27, 25]];
+for (i in pattern9a){
+	var p = pattern9a[i];
+	pattern9 = pattern9.concat(brush_type(p[0], p[1], 51, 'brushCross2'));
+}
+
+
+// pattern10 - tyre track
+var pattern10 = [];
+var pattern10a = [];
+for (i = 1; i < 50; i+=6){
+	pattern10a = pattern10a.concat([[i, 22], [i, 28], [i+3, 25]]);
+}
+for (i in pattern10a){
+	var p = pattern10a[i];
+	pattern10 = pattern10.concat(brush_type(p[0], p[1], 3, 'brushBlock'));
+}
+
+patterns = [pattern1, pattern2, pattern3, pattern4, pattern5, pattern6, pattern7, pattern8, pattern9, pattern10];
 
 
 

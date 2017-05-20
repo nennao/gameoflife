@@ -94,17 +94,34 @@ canvas {
 	border-radius: 0;
 	border-bottom-left-radius: 4px;
 }
-#getPattern {
+#getPattern, #getHelp {
 	cursor: pointer;
 }
 /*=========================*/
+
+.key {
+    min-width: 35px;
+    min-height: 35px;
+    cursor: default;
+    padding: 6px 0;
+    margin-right: 5px;
+}
+.key:hover, .key:active, .key:active:hover {
+    background: none;
+}
+.key:nth-of-type(2) {
+	margin-left: 15px;
+}
+.key.space {
+	padding: 6px 20px;
+}
 
 
 #rightSide {
 	margin-left: 530px;
 }
 
-hr {
+.rightBot hr {
 	margin: 20px 0 5px;
 }
 
